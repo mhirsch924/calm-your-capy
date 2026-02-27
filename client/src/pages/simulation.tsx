@@ -545,6 +545,17 @@ export default function SimulationPage() {
                   </CardContent>
                 </Card>
 
+                <a
+                  href="https://docs.google.com/document/d/1GrR2lAxLKTVtMAaBh39mK8ddzRr0038zST5N7LByl5s/copy?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-testid="link-lab-activity"
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-secondary text-secondary-foreground text-sm hover-elevate active-elevate-2"
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  Open Lab Activity Worksheet (Google Doc)
+                </a>
+
                 <Button size="lg" onClick={startGame} data-testid="button-start">
                   <Play className="w-4 h-4" />
                   Start Simulation
