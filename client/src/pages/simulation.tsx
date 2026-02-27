@@ -344,7 +344,7 @@ function DonationLinks() {
   return (
     <div className="inline-flex items-center gap-0" data-testid="donation-links">
       <a
-        href="https://paypal.me/"
+        href="https://www.paypal.com/paypalme/mhirsch924535"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Donate via PayPal"
