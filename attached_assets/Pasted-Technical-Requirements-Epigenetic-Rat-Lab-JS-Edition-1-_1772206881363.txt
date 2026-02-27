@@ -1,0 +1,20 @@
+Technical Requirements: "Epigenetic Rat Lab" (JS Edition)1. Core Logic & State ManagementThe "Engine" of the simulation must track a single variable: lickCount.Variable lickCount: Integer (0 to 100).Decay Rate: The lickCount should slowly decrease over time (e.g., -1 every 2 seconds) to simulate the need for consistent maternal care.State Thresholds:0–30: Low Care (Anxious Phenotype)31–70: Medium Care (Normal Phenotype)71–100: High Care (Relaxed Phenotype)2. Visual Representation (The "View")The simulation needs to visually reflect the molecular changes. This is best done using a Canvas API or SVG manipulation.The Pup: A simple sprite/image that changes "expression" or color based on the state.The DNA Strand: A horizontal line with "Methyl Groups" (circle icons) sitting on top.Logic: As lickCount increases, the opacity of the Methyl circles decreases (they "disappear").The Histones: Circles that DNA is wrapped around.Logic: As lickCount increases, the distance between histones increases (moving from Heterochromatin to Euchromatin).3. Functional RequirementsInput Handling: A mousedown or touchstart event on the "Rat" sprite that increments the lickCount.Real-time Feedback: A "Stress-O-Meter" (progress bar) that moves in real-time.Data Export: A "results" screen that displays the final levels of mRNA and Protein based on the final lickCount.4. Technical Stack (Recommended)ComponentTechnologyWhy?FrameworkVanilla JavaScript (or Alpine.js)No heavy installation; runs in any browser instantly.GraphicsSVGEasier to animate specific "Methyl" nodes than a bitmap.StylingTailwind CSSQuick UI layout for the stress meters and buttons.5. Proposed Code Structure (Pseudocode)JavaScript// The "Heartbeat" of the Simulation
+let lickCount = 0;
+const methylGroups = document.querySelectorAll('.methyl-tag');
+
+function updateSim() {
+  // 1. Decay the count
+  if (lickCount > 0) lickCount -= 0.5;
+
+  // 2. Update the DNA Visuals
+  methylGroups.forEach((tag, index) => {
+    // If lickCount is high, hide tags (Demethylation)
+    tag.style.opacity = (100 - lickCount) / 100;
+  });
+
+  // 3. Update the Stress Meter
+  document.getElementById('stress-meter').style.width = `${100 - lickCount}%`;
+
+  requestAnimationFrame(updateSim);
+}
+6. User Experience (UX) FlowStart Screen: "You have 60 seconds to nurture your pup."Interaction: Student clicks rapidly. They see the DNA "unspooling" and methyl groups popping off in real-time.End Screen: A graph shows the Glucocorticoid Receptor (GR) levels. High licking = High GR levels = Low Stress.
