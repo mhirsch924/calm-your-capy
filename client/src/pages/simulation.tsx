@@ -2,11 +2,11 @@ import { useState, useCallback, useRef, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
-import { Heart, Play, RotateCcw, ExternalLink } from "lucide-react";
+import { Heart, Play, RotateCcw, ExternalLink, Search } from "lucide-react";
 import { SiPaypal, SiCashapp } from "react-icons/si";
 import { motion, AnimatePresence } from "framer-motion";
 
-type GamePhase = "start" | "playing" | "results";
+type GamePhase = "start" | "playing" | "results" | "investigate";
 type Phenotype = "anxious" | "normal" | "relaxed";
 
 function getPhenotype(lickCount: number): Phenotype {
@@ -25,6 +25,37 @@ function getPhenotypeColor(p: Phenotype): string {
   if (p === "anxious") return "text-foreground";
   if (p === "normal") return "text-muted-foreground";
   return "text-foreground";
+}
+
+function GameTimeline({ timeLeft, totalTime }: { timeLeft: number; totalTime: number }) {
+  const elapsed = totalTime - timeLeft;
+  const progress = (elapsed / totalTime) * 100;
+  const currentDay = Math.min(7, Math.floor((elapsed / totalTime) * 7));
+
+  return (
+    <div className="w-full max-w-md" data-testid="timeline">
+      <p className="text-sm font-semibold text-center mb-2">Timeline</p>
+      <div className="h-3 bg-secondary rounded-full mb-2">
+        <motion.div
+          className="h-full bg-foreground/50 rounded-full"
+          style={{ width: `${progress}%` }}
+          transition={{ duration: 0.3 }}
+        />
+      </div>
+      <div className="flex justify-between text-xs text-muted-foreground px-0.5">
+        {["birth", "1", "2", "3", "4", "5", "6", "7 days"].map((label, i) => (
+          <span
+            key={label}
+            className={`${
+              i <= currentDay ? "text-foreground font-medium" : ""
+            }`}
+          >
+            {label}
+          </span>
+        ))}
+      </div>
+    </div>
+  );
 }
 
 function DNAVisualization({ lickCount }: { lickCount: number }) {
@@ -480,8 +511,8 @@ export default function SimulationPage() {
                   </h2>
                   <p className="text-muted-foreground text-base leading-relaxed" data-testid="text-description">
                     Explore how maternal care shapes gene expression through epigenetics.
-                    You have <span className="font-semibold text-foreground">60 seconds</span> to
-                    nurture your rat pup by clicking on it. Watch how your care affects DNA
+                    You have <span className="font-semibold text-foreground">7 days</span> (from birth)
+                    to nurture your rat pup by clicking on it. Watch how your care affects DNA
                     methylation, histone modification, and the stress response in real-time.
                   </p>
                 </div>
@@ -530,25 +561,23 @@ export default function SimulationPage() {
                 transition={{ duration: 0.3 }}
                 className="space-y-6"
               >
-                <div className="flex items-center justify-between gap-4 flex-wrap">
-                  <div className="space-y-1">
-                    <div className="flex items-center gap-3">
-                      <span className="text-3xl font-bold font-mono" data-testid="text-timer">
-                        {timeLeft}s
-                      </span>
+                <div className="flex flex-col items-center gap-4">
+                  <GameTimeline timeLeft={timeLeft} totalTime={60} />
+                  <div className="flex items-center justify-between gap-4 w-full flex-wrap">
+                    <div className="space-y-1">
                       <span className={`text-sm font-medium ${getPhenotypeColor(phenotype)}`} data-testid="text-phenotype">
                         {getPhenotypeLabel(phenotype)}
                       </span>
+                      <p className="text-xs text-muted-foreground">
+                        Total clicks: <span className="font-mono" data-testid="text-total-licks">{totalLicks}</span>
+                      </p>
                     </div>
-                    <p className="text-xs text-muted-foreground">
-                      Total clicks: <span className="font-mono" data-testid="text-total-licks">{totalLicks}</span>
-                    </p>
-                  </div>
-                  <div className="text-right space-y-1">
-                    <span className="text-sm text-muted-foreground">Lick Count</span>
-                    <p className="text-2xl font-bold font-mono" data-testid="text-lick-count">
-                      {Math.round(lickCount)}
-                    </p>
+                    <div className="text-right space-y-1">
+                      <span className="text-sm text-muted-foreground">Lick Count</span>
+                      <p className="text-2xl font-bold font-mono" data-testid="text-lick-count">
+                        {Math.round(lickCount)}
+                      </p>
+                    </div>
                   </div>
                 </div>
 
@@ -703,10 +732,131 @@ export default function SimulationPage() {
                   </Card>
                 </div>
 
-                <Button size="lg" variant="secondary" onClick={startGame} data-testid="button-restart">
-                  <RotateCcw className="w-4 h-4" />
-                  Try Again
-                </Button>
+                <div className="flex flex-col sm:flex-row items-center gap-4">
+                  <div className="flex items-center gap-3">
+                    <span className="text-sm text-muted-foreground">Investigate high and low nurtured rat pups</span>
+                    <Button onClick={() => setPhase("investigate")} data-testid="button-investigate">
+                      GO!
+                    </Button>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-sm text-muted-foreground">Lick another rat pup</span>
+                    <Button variant="secondary" onClick={startGame} data-testid="button-restart">
+                      GO!
+                    </Button>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+
+            {phase === "investigate" && (
+              <motion.div
+                key="investigate"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4 }}
+                className="flex flex-col items-center gap-8 py-8"
+              >
+                <div className="text-center space-y-3">
+                  <h2 className="text-3xl font-bold tracking-tight" data-testid="text-investigate-title">
+                    Investigate Nurtured Pups
+                  </h2>
+                  <p className="text-muted-foreground max-w-lg" data-testid="text-investigate-description">
+                    Compare the molecular and behavioral outcomes of high-nurtured vs. low-nurtured rat pups.
+                  </p>
+                </div>
+
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-3xl">
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-base">High Nurtured Pup</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div className="flex justify-center">
+                        <RatPup lickCount={90} onLick={() => {}} isPlaying={false} />
+                      </div>
+                      <DNAVisualization lickCount={90} />
+                      <div className="space-y-2 text-sm">
+                        <div className="flex justify-between gap-2">
+                          <span className="text-muted-foreground">DNA Methylation</span>
+                          <span className="font-mono font-medium">10%</span>
+                        </div>
+                        <div className="h-2 bg-secondary rounded-full">
+                          <div className="h-full bg-foreground/50 rounded-full" style={{ width: "10%" }} />
+                        </div>
+                        <div className="flex justify-between gap-2">
+                          <span className="text-muted-foreground">GR Expression</span>
+                          <span className="font-mono font-medium">90%</span>
+                        </div>
+                        <div className="h-2 bg-secondary rounded-full">
+                          <div className="h-full bg-foreground/50 rounded-full" style={{ width: "90%" }} />
+                        </div>
+                        <div className="flex justify-between gap-2">
+                          <span className="text-muted-foreground">Stress Response</span>
+                          <span className="font-mono font-medium">10%</span>
+                        </div>
+                        <div className="h-2 bg-secondary rounded-full">
+                          <div className="h-full bg-foreground/50 rounded-full" style={{ width: "10%" }} />
+                        </div>
+                      </div>
+                      <p className="text-xs text-muted-foreground">
+                        High maternal care removes methyl groups from the GR gene promoter.
+                        The open chromatin allows high GR expression, giving this pup a
+                        calm temperament and robust stress coping.
+                      </p>
+                    </CardContent>
+                  </Card>
+
+                  <Card>
+                    <CardHeader>
+                      <CardTitle className="text-base">Low Nurtured Pup</CardTitle>
+                    </CardHeader>
+                    <CardContent className="space-y-4">
+                      <div className="flex justify-center">
+                        <RatPup lickCount={10} onLick={() => {}} isPlaying={false} />
+                      </div>
+                      <DNAVisualization lickCount={10} />
+                      <div className="space-y-2 text-sm">
+                        <div className="flex justify-between gap-2">
+                          <span className="text-muted-foreground">DNA Methylation</span>
+                          <span className="font-mono font-medium">90%</span>
+                        </div>
+                        <div className="h-2 bg-secondary rounded-full">
+                          <div className="h-full bg-foreground/50 rounded-full" style={{ width: "90%" }} />
+                        </div>
+                        <div className="flex justify-between gap-2">
+                          <span className="text-muted-foreground">GR Expression</span>
+                          <span className="font-mono font-medium">10%</span>
+                        </div>
+                        <div className="h-2 bg-secondary rounded-full">
+                          <div className="h-full bg-foreground/50 rounded-full" style={{ width: "10%" }} />
+                        </div>
+                        <div className="flex justify-between gap-2">
+                          <span className="text-muted-foreground">Stress Response</span>
+                          <span className="font-mono font-medium">90%</span>
+                        </div>
+                        <div className="h-2 bg-secondary rounded-full">
+                          <div className="h-full bg-foreground/50 rounded-full" style={{ width: "90%" }} />
+                        </div>
+                      </div>
+                      <p className="text-xs text-muted-foreground">
+                        Low maternal care leaves heavy methylation on the GR gene promoter.
+                        The closed chromatin silences GR expression, resulting in heightened
+                        anxiety and poor stress regulation throughout life.
+                      </p>
+                    </CardContent>
+                  </Card>
+                </div>
+
+                <div className="flex flex-col sm:flex-row items-center gap-4">
+                  <div className="flex items-center gap-3">
+                    <span className="text-sm text-muted-foreground">Lick another rat pup</span>
+                    <Button variant="secondary" onClick={startGame} data-testid="button-restart-from-investigate">
+                      GO!
+                    </Button>
+                  </div>
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
