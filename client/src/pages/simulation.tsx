@@ -354,7 +354,7 @@ function DonationLinks() {
         <SiPaypal className="w-5 h-5" style={{ color: "#003087" }} />
       </a>
       <a
-        href="https://venmo.com/"
+        href="https://venmo.com/u/mhirsch924"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Donate via Venmo"
