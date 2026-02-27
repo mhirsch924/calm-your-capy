@@ -224,17 +224,17 @@ function RatPup({
 
   const bodyColor =
     phenotype === "relaxed"
-      ? "hsl(0, 0%, 72%)"
+      ? "#5a5a5a"
       : phenotype === "normal"
-      ? "hsl(0, 0%, 58%)"
-      : "hsl(0, 0%, 45%)";
+      ? "#4a4a4a"
+      : "#3a3a3a";
 
   const earColor =
     phenotype === "relaxed"
-      ? "hsl(0, 0%, 80%)"
+      ? "#555555"
       : phenotype === "normal"
-      ? "hsl(0, 0%, 65%)"
-      : "hsl(0, 0%, 52%)";
+      ? "#484848"
+      : "#3c3c3c";
 
   return (
     <div
@@ -252,19 +252,19 @@ function RatPup({
         transition={{ duration: 0.1 }}
       >
         <svg viewBox="0 0 200 200" className="w-48 h-48 mx-auto">
-          <ellipse cx="65" cy="55" rx="22" ry="28" fill={earColor} stroke="hsl(0,0%,40%)" strokeWidth="1" />
-          <ellipse cx="135" cy="55" rx="22" ry="28" fill={earColor} stroke="hsl(0,0%,40%)" strokeWidth="1" />
-          <ellipse cx="65" cy="55" rx="14" ry="18" fill="hsl(0,0%,82%)" opacity="0.5" />
-          <ellipse cx="135" cy="55" rx="14" ry="18" fill="hsl(0,0%,82%)" opacity="0.5" />
+          <ellipse cx="65" cy="55" rx="22" ry="28" fill={earColor} stroke="#333" strokeWidth="1" />
+          <ellipse cx="135" cy="55" rx="22" ry="28" fill={earColor} stroke="#333" strokeWidth="1" />
+          <ellipse cx="65" cy="55" rx="14" ry="18" fill="#d4889a" opacity="0.7" />
+          <ellipse cx="135" cy="55" rx="14" ry="18" fill="#d4889a" opacity="0.7" />
 
-          <ellipse cx="100" cy="110" rx="55" ry="50" fill={bodyColor} stroke="hsl(0,0%,40%)" strokeWidth="1.5" />
+          <ellipse cx="100" cy="110" rx="55" ry="50" fill={bodyColor} stroke="#333" strokeWidth="1.5" />
 
-          <circle cx="82" cy="95" r="6" fill="hsl(0,0%,20%)" />
-          <circle cx="118" cy="95" r="6" fill="hsl(0,0%,20%)" />
+          <circle cx="82" cy="95" r="6" fill="#1a1a1a" />
+          <circle cx="118" cy="95" r="6" fill="#1a1a1a" />
           <circle cx="84" cy="93" r="2" fill="white" />
           <circle cx="120" cy="93" r="2" fill="white" />
 
-          <ellipse cx="100" cy="112" rx="6" ry="4" fill="hsl(0,0%,75%)" />
+          <ellipse cx="100" cy="112" rx="6" ry="4" fill="#d4889a" />
 
           {phenotype === "relaxed" && (
             <path d="M 85 125 Q 100 138, 115 125" fill="none" stroke="hsl(0,0%,30%)" strokeWidth="2" strokeLinecap="round" />
@@ -276,12 +276,12 @@ function RatPup({
             <path d="M 85 130 Q 100 120, 115 130" fill="none" stroke="hsl(0,0%,30%)" strokeWidth="2" strokeLinecap="round" />
           )}
 
-          <line x1="55" y1="108" x2="25" y2="100" stroke="hsl(0,0%,50%)" strokeWidth="1" />
-          <line x1="55" y1="112" x2="25" y2="112" stroke="hsl(0,0%,50%)" strokeWidth="1" />
-          <line x1="55" y1="116" x2="25" y2="124" stroke="hsl(0,0%,50%)" strokeWidth="1" />
-          <line x1="145" y1="108" x2="175" y2="100" stroke="hsl(0,0%,50%)" strokeWidth="1" />
-          <line x1="145" y1="112" x2="175" y2="112" stroke="hsl(0,0%,50%)" strokeWidth="1" />
-          <line x1="145" y1="116" x2="175" y2="124" stroke="hsl(0,0%,50%)" strokeWidth="1" />
+          <line x1="55" y1="108" x2="25" y2="100" stroke="#888" strokeWidth="1" />
+          <line x1="55" y1="112" x2="25" y2="112" stroke="#888" strokeWidth="1" />
+          <line x1="55" y1="116" x2="25" y2="124" stroke="#888" strokeWidth="1" />
+          <line x1="145" y1="108" x2="175" y2="100" stroke="#888" strokeWidth="1" />
+          <line x1="145" y1="112" x2="175" y2="112" stroke="#888" strokeWidth="1" />
+          <line x1="145" y1="116" x2="175" y2="124" stroke="#888" strokeWidth="1" />
 
           <path d="M 100 160 Q 105 180, 120 185" fill="none" stroke={bodyColor} strokeWidth="3" strokeLinecap="round" />
         </svg>
