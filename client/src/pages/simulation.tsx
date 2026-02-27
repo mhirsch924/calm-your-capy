@@ -364,7 +364,7 @@ function DonationLinks() {
         <SiVenmo className="w-5 h-5" style={{ color: "#3D95CE" }} />
       </a>
       <a
-        href="https://cash.app/"
+        href="https://cash.app/$maedos"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Donate via Cash App"
