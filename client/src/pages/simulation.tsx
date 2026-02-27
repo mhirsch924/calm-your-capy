@@ -70,9 +70,9 @@ function DNAVisualization({ lickCount }: { lickCount: number }) {
     >
       <defs>
         <linearGradient id="dnaGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-          <stop offset="0%" stopColor="hsl(0, 0%, 50%)" />
-          <stop offset="50%" stopColor="hsl(0, 0%, 65%)" />
-          <stop offset="100%" stopColor="hsl(0, 0%, 50%)" />
+          <stop offset="0%" stopColor="#936d2d" />
+          <stop offset="50%" stopColor="#b08840" />
+          <stop offset="100%" stopColor="#936d2d" />
         </linearGradient>
       </defs>
 
@@ -84,9 +84,9 @@ function DNAVisualization({ lickCount }: { lickCount: number }) {
               cx={cx}
               cy={100 + (i % 2 === 0 ? -histoneSpread / 4 : histoneSpread / 4)}
               r={22}
-              fill="hsl(0, 0%, 35%)"
+              fill="#568aa2"
               opacity={0.6}
-              stroke="hsl(0, 0%, 45%)"
+              stroke="#6a9db5"
               strokeWidth={1.5}
             />
             <text
@@ -119,9 +119,9 @@ function DNAVisualization({ lickCount }: { lickCount: number }) {
               cx={x}
               cy={50}
               r={10}
-              fill="hsl(0, 0%, 55%)"
+              fill="#568aa2"
               opacity={methylOpacity}
-              stroke="hsl(0, 0%, 40%)"
+              stroke="#456f82"
               strokeWidth={1}
               style={{ transition: "opacity 0.3s ease" }}
             />
@@ -142,7 +142,7 @@ function DNAVisualization({ lickCount }: { lickCount: number }) {
               y1={60}
               x2={x}
               y2={78}
-              stroke="hsl(0, 0%, 55%)"
+              stroke="#568aa2"
               strokeWidth={1}
               opacity={methylOpacity}
               strokeDasharray="3,2"
