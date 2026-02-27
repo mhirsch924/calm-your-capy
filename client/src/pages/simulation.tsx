@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Progress } from "@/components/ui/progress";
 import { Heart, Play, RotateCcw, ExternalLink, Search } from "lucide-react";
-import { SiPaypal, SiCashapp } from "react-icons/si";
+import { SiPaypal, SiCashapp, SiVenmo } from "react-icons/si";
 import { motion, AnimatePresence } from "framer-motion";
 
 type GamePhase = "start" | "playing" | "results" | "investigate";
@@ -342,39 +342,36 @@ function ResultsChart({ finalLickCount }: { finalLickCount: number }) {
 
 function DonationLinks() {
   return (
-    <div className="flex flex-wrap items-center justify-center gap-3" data-testid="donation-links">
+    <div className="inline-flex items-center gap-0" data-testid="donation-links">
       <a
         href="https://paypal.me/"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Donate via PayPal"
         data-testid="link-donate-paypal"
-        className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-secondary text-secondary-foreground text-sm hover-elevate active-elevate-2"
+        className="inline-flex items-center justify-center w-8 h-8 rounded-md"
       >
-        <SiPaypal className="w-4 h-4" />
-        PayPal
-        <ExternalLink className="w-3 h-3" />
+        <SiPaypal className="w-5 h-5" style={{ color: "#003087" }} />
       </a>
       <a
         href="https://venmo.com/"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Donate via Venmo"
         data-testid="link-donate-venmo"
-        className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-secondary text-secondary-foreground text-sm hover-elevate active-elevate-2"
+        className="inline-flex items-center justify-center w-8 h-8 rounded-md"
       >
-        <span className="font-bold text-xs">V</span>
-        Venmo
-        <ExternalLink className="w-3 h-3" />
+        <SiVenmo className="w-5 h-5" style={{ color: "#3D95CE" }} />
       </a>
       <a
         href="https://cash.app/"
         target="_blank"
         rel="noopener noreferrer"
+        aria-label="Donate via Cash App"
         data-testid="link-donate-cashapp"
-        className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-secondary text-secondary-foreground text-sm hover-elevate active-elevate-2"
+        className="inline-flex items-center justify-center w-8 h-8 rounded-md"
       >
-        <SiCashapp className="w-4 h-4" />
-        Cash App
-        <ExternalLink className="w-3 h-3" />
+        <SiCashapp className="w-5 h-5" style={{ color: "#00C244" }} />
       </a>
     </div>
   );
