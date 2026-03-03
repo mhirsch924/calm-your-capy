@@ -812,8 +812,7 @@ export default function SimulationPage() {
         <div className="max-w-5xl mx-auto space-y-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="text-xs text-muted-foreground text-center sm:text-left space-y-1">
-              <p>Calm Your Capy - An interactive simulation exploring maternal care and epigenetic programming.</p>
-              <p>The mechanics of this simulation are based on the epigenetic research of maternal care patterns originally popularized by the University of Utah's Genetic Science Learning Center.</p>
+              <p>Calm Your Capy - An interactive simulation exploring maternal care and epigenetic programming. The mechanics of this simulation are based on the epigenetic research of maternal care patterns originally popularized by the University of Utah's Genetic Science Learning Center.</p>
             </div>
             <div className="flex flex-col items-center gap-2">
               <p className="text-xs text-muted-foreground">Support this project</p>
