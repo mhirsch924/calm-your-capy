@@ -251,39 +251,46 @@ function RatPup({
         animate={{ scale: isPressed ? 0.95 : 1 }}
         transition={{ duration: 0.1 }}
       >
-        <svg viewBox="0 0 200 200" className="w-48 h-48 mx-auto">
-          <ellipse cx="65" cy="55" rx="22" ry="28" fill={earColor} stroke="#333" strokeWidth="1" />
-          <ellipse cx="135" cy="55" rx="22" ry="28" fill={earColor} stroke="#333" strokeWidth="1" />
-          <ellipse cx="65" cy="55" rx="14" ry="18" fill="#d4889a" opacity="0.7" />
-          <ellipse cx="135" cy="55" rx="14" ry="18" fill="#d4889a" opacity="0.7" />
+        <svg viewBox="0 0 240 200" className="w-56 h-48 mx-auto">
+          <ellipse cx="120" cy="130" rx="70" ry="50" fill={bodyColor} stroke="#333" strokeWidth="1.5" />
 
-          <ellipse cx="100" cy="110" rx="55" ry="50" fill={bodyColor} stroke="#333" strokeWidth="1.5" />
+          <ellipse cx="120" cy="80" rx="45" ry="38" fill={bodyColor} stroke="#333" strokeWidth="1.5" />
 
-          <circle cx="82" cy="95" r="6" fill="#1a1a1a" />
-          <circle cx="118" cy="95" r="6" fill="#1a1a1a" />
-          <circle cx="84" cy="93" r="2" fill="white" />
-          <circle cx="120" cy="93" r="2" fill="white" />
+          <ellipse cx="120" cy="115" rx="50" ry="30" fill={bodyColor} />
 
-          <ellipse cx="100" cy="112" rx="6" ry="4" fill="#d4889a" />
+          <ellipse cx="80" cy="52" rx="12" ry="10" fill={earColor} stroke="#333" strokeWidth="1" />
+          <ellipse cx="160" cy="52" rx="12" ry="10" fill={earColor} stroke="#333" strokeWidth="1" />
+          <ellipse cx="80" cy="52" rx="7" ry="6" fill="#d4889a" opacity="0.6" />
+          <ellipse cx="160" cy="52" rx="7" ry="6" fill="#d4889a" opacity="0.6" />
+
+          <circle cx="102" cy="72" r="5" fill="#1a1a1a" />
+          <circle cx="138" cy="72" r="5" fill="#1a1a1a" />
+          <circle cx="103.5" cy="70.5" r="1.8" fill="white" />
+          <circle cx="139.5" cy="70.5" r="1.8" fill="white" />
+
+          <ellipse cx="120" cy="92" rx="18" ry="12" fill={earColor} stroke="#333" strokeWidth="1" />
+          <ellipse cx="113" cy="88" rx="3" ry="2.5" fill="#d4889a" />
+          <ellipse cx="127" cy="88" rx="3" ry="2.5" fill="#d4889a" />
 
           {phenotype === "relaxed" && (
-            <path d="M 85 125 Q 100 138, 115 125" fill="none" stroke="hsl(0,0%,30%)" strokeWidth="2" strokeLinecap="round" />
+            <path d="M 110 100 Q 120 110, 130 100" fill="none" stroke="#333" strokeWidth="1.5" strokeLinecap="round" />
           )}
           {phenotype === "normal" && (
-            <line x1="88" y1="125" x2="112" y2="125" stroke="hsl(0,0%,30%)" strokeWidth="2" strokeLinecap="round" />
+            <line x1="112" y1="100" x2="128" y2="100" stroke="#333" strokeWidth="1.5" strokeLinecap="round" />
           )}
           {phenotype === "anxious" && (
-            <path d="M 85 130 Q 100 120, 115 130" fill="none" stroke="hsl(0,0%,30%)" strokeWidth="2" strokeLinecap="round" />
+            <path d="M 110 104 Q 120 96, 130 104" fill="none" stroke="#333" strokeWidth="1.5" strokeLinecap="round" />
           )}
 
-          <line x1="55" y1="108" x2="25" y2="100" stroke="#888" strokeWidth="1" />
-          <line x1="55" y1="112" x2="25" y2="112" stroke="#888" strokeWidth="1" />
-          <line x1="55" y1="116" x2="25" y2="124" stroke="#888" strokeWidth="1" />
-          <line x1="145" y1="108" x2="175" y2="100" stroke="#888" strokeWidth="1" />
-          <line x1="145" y1="112" x2="175" y2="112" stroke="#888" strokeWidth="1" />
-          <line x1="145" y1="116" x2="175" y2="124" stroke="#888" strokeWidth="1" />
+          <ellipse cx="60" cy="155" rx="14" ry="18" fill={bodyColor} stroke="#333" strokeWidth="1" />
+          <ellipse cx="180" cy="155" rx="14" ry="18" fill={bodyColor} stroke="#333" strokeWidth="1" />
+          <ellipse cx="85" cy="162" rx="12" ry="16" fill={bodyColor} stroke="#333" strokeWidth="1" />
+          <ellipse cx="155" cy="162" rx="12" ry="16" fill={bodyColor} stroke="#333" strokeWidth="1" />
 
-          <path d="M 100 160 Q 105 180, 120 185" fill="none" stroke={bodyColor} strokeWidth="3" strokeLinecap="round" />
+          <ellipse cx="60" cy="172" rx="8" ry="4" fill={earColor} stroke="#333" strokeWidth="0.8" />
+          <ellipse cx="85" cy="177" rx="7" ry="3.5" fill={earColor} stroke="#333" strokeWidth="0.8" />
+          <ellipse cx="155" cy="177" rx="7" ry="3.5" fill={earColor} stroke="#333" strokeWidth="0.8" />
+          <ellipse cx="180" cy="172" rx="8" ry="4" fill={earColor} stroke="#333" strokeWidth="0.8" />
         </svg>
       </motion.div>
 
