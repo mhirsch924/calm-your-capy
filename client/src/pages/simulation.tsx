@@ -224,17 +224,17 @@ function RatPup({
 
   const bodyColor =
     phenotype === "relaxed"
-      ? "#5a5a5a"
+      ? "#E8A040"
       : phenotype === "normal"
-      ? "#4a4a4a"
-      : "#3a3a3a";
+      ? "#D4882B"
+      : "#B87020";
 
   const earColor =
     phenotype === "relaxed"
-      ? "#555555"
+      ? "#D4952E"
       : phenotype === "normal"
-      ? "#484848"
-      : "#3c3c3c";
+      ? "#C07A22"
+      : "#A5651A";
 
   return (
     <div
