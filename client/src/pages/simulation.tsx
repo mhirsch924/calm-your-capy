@@ -277,10 +277,10 @@ function RatPup({
 
           <circle cx="100" cy="80" r="62" fill="url(#bodyGrad)" stroke="#6B4513" strokeWidth="2.5" />
 
-          <ellipse cx="62" cy="30" rx="16" ry="14" fill={bodyColor} stroke="#6B4513" strokeWidth="2" />
-          <ellipse cx="138" cy="30" rx="16" ry="14" fill={bodyColor} stroke="#6B4513" strokeWidth="2" />
-          <ellipse cx="62" cy="30" rx="10" ry="9" fill="#E8909C" opacity="0.7" />
-          <ellipse cx="138" cy="30" rx="10" ry="9" fill="#E8909C" opacity="0.7" />
+          <ellipse cx="62" cy="32" rx="20" ry="26" fill={bodyColor} stroke="#6B4513" strokeWidth="2" />
+          <ellipse cx="138" cy="32" rx="20" ry="26" fill={bodyColor} stroke="#6B4513" strokeWidth="2" />
+          <ellipse cx="62" cy="32" rx="13" ry="17" fill="#E8909C" opacity="0.7" />
+          <ellipse cx="138" cy="32" rx="13" ry="17" fill="#E8909C" opacity="0.7" />
 
           <ellipse cx="78" cy="75" r="14" fill="white" />
           <ellipse cx="122" cy="75" r="14" fill="white" />
