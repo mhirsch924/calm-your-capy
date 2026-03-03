@@ -843,10 +843,11 @@ export default function SimulationPage() {
       <footer className="border-t border-border px-4 py-6" data-testid="footer">
         <div className="max-w-5xl mx-auto space-y-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-muted-foreground text-center sm:text-left">
-              Epigenetic Rat Lab - An interactive simulation exploring maternal care and epigenetic programming.
-              Based on the research of Meaney & Szyf (2005).
-            </p>
+            <div className="text-xs text-muted-foreground text-center sm:text-left space-y-1">
+              <p>Epigenetic Rat Lab - An interactive simulation exploring maternal care and epigenetic programming.
+              Based on the research of Meaney & Szyf (2005).</p>
+              <p>&copy; University of Utah. All rights reserved.</p>
+            </div>
             <div className="flex flex-col items-center gap-2">
               <p className="text-xs text-muted-foreground">Support this project</p>
               <DonationLinks />
