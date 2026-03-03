@@ -279,8 +279,8 @@ function RatPup({
 
           <ellipse cx="62" cy="30" rx="16" ry="14" fill={bodyColor} stroke="#6B4513" strokeWidth="2" />
           <ellipse cx="138" cy="30" rx="16" ry="14" fill={bodyColor} stroke="#6B4513" strokeWidth="2" />
-          <ellipse cx="62" cy="30" rx="10" ry="9" fill={earColor} opacity="0.7" />
-          <ellipse cx="138" cy="30" rx="10" ry="9" fill={earColor} opacity="0.7" />
+          <ellipse cx="62" cy="30" rx="10" ry="9" fill="#E8909C" opacity="0.7" />
+          <ellipse cx="138" cy="30" rx="10" ry="9" fill="#E8909C" opacity="0.7" />
 
           <ellipse cx="78" cy="75" r="14" fill="white" />
           <ellipse cx="122" cy="75" r="14" fill="white" />
@@ -297,6 +297,13 @@ function RatPup({
 
           <circle cx="65" cy="90" r="14" fill="url(#cheekGrad)" />
           <circle cx="135" cy="90" r="14" fill="url(#cheekGrad)" />
+
+          <line x1="64" y1="86" x2="68" y2="92" stroke="#E8909C" strokeWidth="1.5" strokeLinecap="round" />
+          <line x1="68" y1="86" x2="72" y2="92" stroke="#E8909C" strokeWidth="1.5" strokeLinecap="round" />
+          <line x1="72" y1="86" x2="76" y2="92" stroke="#E8909C" strokeWidth="1.5" strokeLinecap="round" />
+          <line x1="124" y1="86" x2="128" y2="92" stroke="#E8909C" strokeWidth="1.5" strokeLinecap="round" />
+          <line x1="128" y1="86" x2="132" y2="92" stroke="#E8909C" strokeWidth="1.5" strokeLinecap="round" />
+          <line x1="132" y1="86" x2="136" y2="92" stroke="#E8909C" strokeWidth="1.5" strokeLinecap="round" />
 
           {phenotype === "relaxed" && (
             <>
