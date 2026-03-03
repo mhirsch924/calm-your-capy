@@ -846,7 +846,7 @@ export default function SimulationPage() {
             <div className="text-xs text-muted-foreground text-center sm:text-left space-y-1">
               <p>Epigenetic Rat Lab - An interactive simulation exploring maternal care and epigenetic programming.
               Based on the research of Meaney & Szyf (2005).</p>
-              <p>&copy; University of Utah. All rights reserved.</p>
+              <p>&copy; University of Utah. All rights reserved. This is an independent, non-commercial fan-made simulation created for educational purposes.</p>
             </div>
             <div className="flex flex-col items-center gap-2">
               <p className="text-xs text-muted-foreground">Support this project</p>
