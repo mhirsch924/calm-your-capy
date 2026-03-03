@@ -5,6 +5,9 @@ import { Progress } from "@/components/ui/progress";
 import { Heart, Play, RotateCcw, ExternalLink, Search } from "lucide-react";
 import { SiPaypal, SiCashapp, SiVenmo } from "react-icons/si";
 import { motion, AnimatePresence } from "framer-motion";
+import capyHappy from "@assets/unnamed_1772549820831.jpg";
+import capyNormal from "@assets/unnamed_1772549824022.jpg";
+import capyAnxious from "@assets/unnamed_1772549826393.jpg";
 
 type GamePhase = "start" | "playing" | "results" | "investigate";
 type Phenotype = "anxious" | "normal" | "relaxed";
@@ -222,19 +225,12 @@ function RatPup({
     [isPlaying, onLick, triggerEffect]
   );
 
-  const bodyColor =
+  const capyImage =
     phenotype === "relaxed"
-      ? "#E8A040"
+      ? capyHappy
       : phenotype === "normal"
-      ? "#D4882B"
-      : "#B87020";
-
-  const earColor =
-    phenotype === "relaxed"
-      ? "#D4952E"
-      : phenotype === "normal"
-      ? "#C07A22"
-      : "#A5651A";
+      ? capyNormal
+      : capyAnxious;
 
   return (
     <div
@@ -251,75 +247,12 @@ function RatPup({
         animate={{ scale: isPressed ? 0.95 : 1 }}
         transition={{ duration: 0.1 }}
       >
-        <svg viewBox="0 0 200 220" className="w-56 h-56 mx-auto">
-          <defs>
-            <radialGradient id="bodyGrad" cx="45%" cy="35%">
-              <stop offset="0%" stopColor={bodyColor} stopOpacity="1" />
-              <stop offset="100%" stopColor={earColor} stopOpacity="1" />
-            </radialGradient>
-            <radialGradient id="cheekGrad" cx="50%" cy="50%">
-              <stop offset="0%" stopColor="#F4A87A" stopOpacity="0.6" />
-              <stop offset="100%" stopColor="#F4A87A" stopOpacity="0" />
-            </radialGradient>
-          </defs>
-
-          <ellipse cx="68" cy="155" rx="22" ry="30" fill={bodyColor} stroke="#6B4513" strokeWidth="2" />
-          <ellipse cx="132" cy="155" rx="22" ry="30" fill={bodyColor} stroke="#6B4513" strokeWidth="2" />
-          <ellipse cx="68" cy="183" rx="14" ry="8" fill={earColor} stroke="#6B4513" strokeWidth="1.5" />
-          <ellipse cx="132" cy="183" rx="14" ry="8" fill={earColor} stroke="#6B4513" strokeWidth="1.5" />
-
-          <ellipse cx="100" cy="150" rx="58" ry="48" fill="url(#bodyGrad)" stroke="#6B4513" strokeWidth="2" />
-
-          <ellipse cx="55" cy="155" rx="18" ry="28" fill={bodyColor} stroke="#6B4513" strokeWidth="2" />
-          <ellipse cx="145" cy="155" rx="18" ry="28" fill={bodyColor} stroke="#6B4513" strokeWidth="2" />
-          <ellipse cx="55" cy="181" rx="11" ry="6" fill={earColor} stroke="#6B4513" strokeWidth="1.5" />
-          <ellipse cx="145" cy="181" rx="11" ry="6" fill={earColor} stroke="#6B4513" strokeWidth="1.5" />
-
-          <circle cx="100" cy="80" r="62" fill="url(#bodyGrad)" stroke="#6B4513" strokeWidth="2.5" />
-
-          <ellipse cx="62" cy="32" rx="20" ry="26" fill={bodyColor} stroke="#6B4513" strokeWidth="2" />
-          <ellipse cx="138" cy="32" rx="20" ry="26" fill={bodyColor} stroke="#6B4513" strokeWidth="2" />
-          <ellipse cx="62" cy="32" rx="13" ry="17" fill="#E8909C" opacity="0.7" />
-          <ellipse cx="138" cy="32" rx="13" ry="17" fill="#E8909C" opacity="0.7" />
-
-          <ellipse cx="78" cy="75" r="14" fill="white" />
-          <ellipse cx="122" cy="75" r="14" fill="white" />
-          <circle cx="80" cy="74" r="10" fill="#1a1a1a" />
-          <circle cx="120" cy="74" r="10" fill="#1a1a1a" />
-          <circle cx="83" cy="70" r="4" fill="white" />
-          <circle cx="123" cy="70" r="4" fill="white" />
-          <circle cx="78" cy="76" r="2" fill="white" opacity="0.5" />
-          <circle cx="118" cy="76" r="2" fill="white" opacity="0.5" />
-
-          <ellipse cx="100" cy="95" rx="8" ry="5" fill="#6B4513" />
-          <ellipse cx="97" cy="93" rx="2.5" ry="2" fill="#4a3010" />
-          <ellipse cx="103" cy="93" rx="2.5" ry="2" fill="#4a3010" />
-
-          <circle cx="65" cy="90" r="14" fill="url(#cheekGrad)" />
-          <circle cx="135" cy="90" r="14" fill="url(#cheekGrad)" />
-
-          <line x1="64" y1="86" x2="68" y2="92" stroke="#E8909C" strokeWidth="1.5" strokeLinecap="round" />
-          <line x1="68" y1="86" x2="72" y2="92" stroke="#E8909C" strokeWidth="1.5" strokeLinecap="round" />
-          <line x1="72" y1="86" x2="76" y2="92" stroke="#E8909C" strokeWidth="1.5" strokeLinecap="round" />
-          <line x1="124" y1="86" x2="128" y2="92" stroke="#E8909C" strokeWidth="1.5" strokeLinecap="round" />
-          <line x1="128" y1="86" x2="132" y2="92" stroke="#E8909C" strokeWidth="1.5" strokeLinecap="round" />
-          <line x1="132" y1="86" x2="136" y2="92" stroke="#E8909C" strokeWidth="1.5" strokeLinecap="round" />
-
-          {phenotype === "relaxed" && (
-            <>
-              <path d="M 88 105 Q 94 114, 100 105" fill="none" stroke="#6B4513" strokeWidth="2" strokeLinecap="round" />
-              <path d="M 100 105 Q 106 114, 112 105" fill="none" stroke="#6B4513" strokeWidth="2" strokeLinecap="round" />
-            </>
-          )}
-          {phenotype === "normal" && (
-            <line x1="90" y1="106" x2="110" y2="106" stroke="#6B4513" strokeWidth="2" strokeLinecap="round" />
-          )}
-          {phenotype === "anxious" && (
-            <path d="M 88 110 Q 100 100, 112 110" fill="none" stroke="#6B4513" strokeWidth="2" strokeLinecap="round" />
-          )}
-
-          <ellipse cx="100" cy="130" rx="22" ry="14" fill={earColor} opacity="0.5" />
-        </svg>
+        <img
+          src={capyImage}
+          alt={`Capybara pup - ${phenotype}`}
+          className="w-64 h-48 object-cover rounded-xl mx-auto"
+          draggable={false}
+        />
       </motion.div>
 
       <AnimatePresence>
