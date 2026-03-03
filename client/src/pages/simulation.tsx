@@ -814,7 +814,7 @@ export default function SimulationPage() {
             <div className="text-xs text-muted-foreground text-center sm:text-left space-y-1">
               <p>Calm Your Capy - An interactive simulation exploring maternal care and epigenetic programming.
               Based on the research of Meaney & Szyf (2005).</p>
-              <p>&copy; University of Utah. All rights reserved. This is an independent, non-commercial fan-made simulation created for educational purposes.</p>
+              <p>The mechanics of this simulation are based on the epigenetic research of maternal care patterns originally popularized by the University of Utah's Genetic Science Learning Center.</p>
             </div>
             <div className="flex flex-col items-center gap-2">
               <p className="text-xs text-muted-foreground">Support this project</p>
