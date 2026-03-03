@@ -377,35 +377,6 @@ function DonationLinks() {
   );
 }
 
-function AdBanner({ slot }: { slot: string }) {
-  const adRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    try {
-      const adsbygoogle = (window as any).adsbygoogle || [];
-      adsbygoogle.push({});
-    } catch {
-    }
-  }, []);
-
-  return (
-    <div
-      ref={adRef}
-      className="relative w-full flex items-center justify-center bg-muted/50 rounded-md border border-border min-h-[90px] text-xs text-muted-foreground"
-      data-testid={`ad-banner-${slot}`}
-    >
-      <ins
-        className="adsbygoogle"
-        style={{ display: "block", width: "100%", minHeight: "90px" }}
-        data-ad-client="ca-pub-8069414156965182"
-        data-ad-slot={slot}
-        data-ad-format="auto"
-        data-full-width-responsive="true"
-      />
-      <span className="absolute text-xs text-muted-foreground/50">Advertisement</span>
-    </div>
-  );
-}
 
 export default function SimulationPage() {
   const [phase, setPhase] = useState<GamePhase>("start");
@@ -488,9 +459,6 @@ export default function SimulationPage() {
 
       <main className="flex-1 px-4 py-6">
         <div className="max-w-5xl mx-auto space-y-6">
-          <div className="relative">
-            <AdBanner slot="top-banner" />
-          </div>
 
           <AnimatePresence mode="wait">
             {phase === "start" && (
@@ -869,9 +837,6 @@ export default function SimulationPage() {
             )}
           </AnimatePresence>
 
-          <div className="relative">
-            <AdBanner slot="bottom-banner" />
-          </div>
         </div>
       </main>
 
