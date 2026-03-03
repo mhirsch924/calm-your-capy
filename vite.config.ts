@@ -19,6 +19,7 @@ export default defineConfig({
         ]
       : []),
   ],
+  base: '/calm-your-capy/',
   resolve: {
     alias: {
       "@": path.resolve(import.meta.dirname, "client", "src"),
