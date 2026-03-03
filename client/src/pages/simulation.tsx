@@ -240,7 +240,7 @@ function RatPup({
     <div
       role="button"
       tabIndex={isPlaying ? 0 : -1}
-      aria-label="Click to nurture the rat pup"
+      aria-label="Click to nurture the capybara pup"
       className={`relative select-none outline-none focus-visible:ring-2 focus-visible:ring-ring rounded-md ${isPlaying ? "cursor-pointer" : "cursor-default"}`}
       onMouseDown={handleInteraction}
       onTouchStart={handleInteraction}
@@ -446,9 +446,9 @@ export default function SimulationPage() {
         <div className="max-w-5xl mx-auto flex items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-md bg-foreground/10 flex items-center justify-center">
-              <span className="text-sm font-bold text-foreground/70">ER</span>
+              <span className="text-sm font-bold text-foreground/70">CC</span>
             </div>
-            <h1 className="text-lg font-semibold tracking-tight">Epigenetic Rat Lab</h1>
+            <h1 className="text-lg font-semibold tracking-tight">Calm Your Capy</h1>
           </div>
           <div className="flex items-center gap-2">
             <span className="text-xs text-muted-foreground hidden sm:inline">Support this project</span>
@@ -472,12 +472,12 @@ export default function SimulationPage() {
               >
                 <div className="text-center space-y-4 max-w-xl">
                   <h2 className="text-3xl font-bold tracking-tight" data-testid="text-title">
-                    Epigenetic Rat Lab
+                    Calm Your Capy
                   </h2>
                   <p className="text-muted-foreground text-base leading-relaxed" data-testid="text-description">
                     Explore how maternal care shapes gene expression through epigenetics.
                     You have <span className="font-semibold text-foreground">7 days</span> (from birth)
-                    to nurture your rat pup by clicking on it. Watch how your care affects DNA
+                    to nurture your capybara pup by clicking on it. Watch how your care affects DNA
                     methylation, histone modification, and the stress response in real-time.
                   </p>
                 </div>
@@ -489,9 +489,9 @@ export default function SimulationPage() {
                 <Card className="max-w-md w-full">
                   <CardContent className="p-6 space-y-4">
                     <div className="space-y-2 text-sm text-muted-foreground">
-                      <p><span className="font-medium text-foreground">Goal:</span> Click the rat pup to simulate maternal licking/grooming.</p>
+                      <p><span className="font-medium text-foreground">Goal:</span> Click the capybara pup to simulate maternal scrubbing/grooming.</p>
                       <p><span className="font-medium text-foreground">Effect:</span> More care = less DNA methylation = more GR expression = lower stress.</p>
-                      <p><span className="font-medium text-foreground">Challenge:</span> The lick count decays over time, so you need consistent care!</p>
+                      <p><span className="font-medium text-foreground">Challenge:</span> The scrub count decays over time, so you need consistent care!</p>
                     </div>
                     <div className="space-y-1.5 text-xs text-muted-foreground">
                       <div className="flex items-center gap-2">
@@ -549,7 +549,7 @@ export default function SimulationPage() {
                       </p>
                     </div>
                     <div className="text-right space-y-1">
-                      <span className="text-sm text-muted-foreground">Lick Count</span>
+                      <span className="text-sm text-muted-foreground">Scrub Count</span>
                       <p className="text-2xl font-bold font-mono" data-testid="text-lick-count">
                         {Math.round(lickCount)}
                       </p>
@@ -574,7 +574,7 @@ export default function SimulationPage() {
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
                   <Card>
                     <CardHeader className="pb-2">
-                      <CardTitle className="text-base">Rat Pup</CardTitle>
+                      <CardTitle className="text-base">Capybara Pup</CardTitle>
                     </CardHeader>
                     <CardContent className="flex flex-col items-center gap-2">
                       <RatPup lickCount={lickCount} onLick={handleLick} isPlaying={true} />
@@ -668,7 +668,7 @@ export default function SimulationPage() {
                     <CardContent className="space-y-4">
                       <div className="grid grid-cols-2 gap-4">
                         <div className="text-center p-3 bg-muted/50 rounded-md">
-                          <p className="text-xs text-muted-foreground">Final Lick Count</p>
+                          <p className="text-xs text-muted-foreground">Final Scrub Count</p>
                           <p className="text-2xl font-bold font-mono" data-testid="text-final-lick-count">
                             {Math.round(finalLickCount)}
                           </p>
@@ -684,7 +684,7 @@ export default function SimulationPage() {
                       <div className="space-y-2 text-sm text-muted-foreground">
                         {finalLickCount > 70 ? (
                           <p>
-                            Excellent care! High maternal licking removed methyl groups from the
+                            Excellent care! High maternal scrubbing removed methyl groups from the
                             GR gene promoter, increasing glucocorticoid receptor expression.
                             This pup will have a robust stress response and lower anxiety.
                           </p>
@@ -710,13 +710,13 @@ export default function SimulationPage() {
 
                 <div className="flex flex-col sm:flex-row items-center gap-4">
                   <div className="flex items-center gap-3">
-                    <span className="text-sm text-muted-foreground">Investigate high and low nurtured rat pups</span>
+                    <span className="text-sm text-muted-foreground">Investigate high and low nurtured capybara pups</span>
                     <Button onClick={() => setPhase("investigate")} data-testid="button-investigate">
                       GO!
                     </Button>
                   </div>
                   <div className="flex items-center gap-3">
-                    <span className="text-sm text-muted-foreground">Lick another rat pup</span>
+                    <span className="text-sm text-muted-foreground">Scrub another capybara pup</span>
                     <Button variant="secondary" onClick={startGame} data-testid="button-restart">
                       GO!
                     </Button>
@@ -739,14 +739,14 @@ export default function SimulationPage() {
                     Investigate Nurtured Pups
                   </h2>
                   <p className="text-muted-foreground max-w-lg" data-testid="text-investigate-description">
-                    Compare the molecular and behavioral outcomes of high-nurtured vs. low-nurtured rat pups.
+                    Compare the molecular and behavioral outcomes of high-nurtured vs. low-nurtured capybara pups.
                   </p>
                 </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-3xl">
                   <Card>
                     <CardHeader>
-                      <CardTitle className="text-base">High Nurtured Pup</CardTitle>
+                      <CardTitle className="text-base">High Nurtured Capybara Pup</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
                       <div className="flex justify-center">
@@ -786,7 +786,7 @@ export default function SimulationPage() {
 
                   <Card>
                     <CardHeader>
-                      <CardTitle className="text-base">Low Nurtured Pup</CardTitle>
+                      <CardTitle className="text-base">Low Nurtured Capybara Pup</CardTitle>
                     </CardHeader>
                     <CardContent className="space-y-4">
                       <div className="flex justify-center">
@@ -827,7 +827,7 @@ export default function SimulationPage() {
 
                 <div className="flex flex-col sm:flex-row items-center gap-4">
                   <div className="flex items-center gap-3">
-                    <span className="text-sm text-muted-foreground">Lick another rat pup</span>
+                    <span className="text-sm text-muted-foreground">Scrub another capybara pup</span>
                     <Button variant="secondary" onClick={startGame} data-testid="button-restart-from-investigate">
                       GO!
                     </Button>
@@ -844,7 +844,7 @@ export default function SimulationPage() {
         <div className="max-w-5xl mx-auto space-y-4">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="text-xs text-muted-foreground text-center sm:text-left space-y-1">
-              <p>Epigenetic Rat Lab - An interactive simulation exploring maternal care and epigenetic programming.
+              <p>Calm Your Capy - An interactive simulation exploring maternal care and epigenetic programming.
               Based on the research of Meaney & Szyf (2005).</p>
               <p>&copy; University of Utah. All rights reserved. This is an independent, non-commercial fan-made simulation created for educational purposes.</p>
             </div>
